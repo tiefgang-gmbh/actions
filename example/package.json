@@ -1,0 +1,16 @@
+{
+  "name": "@tiefgang/action-example",
+  "private": true,
+  "type": "module",
+  "description": "The contract template for tiefgang's GitHub Actions: one input echoed to one output.",
+  "dependencies": {
+    "@actions/core": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@vitest/coverage-v8": "^4.1.11",
+    "esbuild": "^0.28.1",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.11"
+  }
+}

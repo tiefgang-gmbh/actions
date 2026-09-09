@@ -1,0 +1,4 @@
+# The committed esbuild bundles (INV-ACTIONS-3): reviewed by the drift
+# gate, not by eye. Lives here, not in the monorepo root, so the mirror
+# carries it too.
+*/dist/** linguist-generated=true

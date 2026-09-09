@@ -1,0 +1,14 @@
+name: tiefgang example
+description: The contract template for tiefgang's actions — echoes an input to an output.
+author: tiefgang GmbH
+inputs:
+  name:
+    description: Who to greet.
+    required: false
+    default: world
+outputs:
+  greeting:
+    description: '`hello, <name>`.'
+runs:
+  using: node24
+  main: dist/index.js

@@ -1,0 +1,4 @@
+# The root ignore file drops every dist/; the committed esbuild bundles
+# (actions.md INV-ACTIONS-3) are the one exception, and the exception
+# lives here so the mirror carries it too.
+!*/dist/

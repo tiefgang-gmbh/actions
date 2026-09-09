@@ -1,0 +1,36 @@
+# Release configuration for tiefgang-gmbh/actions (actions.md §6).
+# Read by .github/workflows/release.yml; nothing here writes a file —
+# the rendered output becomes the GitHub Release body.
+
+[changelog]
+header = ""
+body = """
+{% for group, commits in commits | group_by(attribute="group") %}
+### {{ group | striptags | trim }}
+{% for commit in commits %}
+- {% if commit.breaking %}**BREAKING** {% endif %}{{ commit.message | split(pat="\n") | first | trim }} ({{ commit.id | truncate(length=7, end="") }})
+{%- endfor %}
+{% endfor %}
+"""
+footer = ""
+trim = true
+
+[git]
+conventional_commits = true
+filter_unconventional = true
+tag_pattern = '^v[0-9]+\.[0-9]+\.[0-9]+$'
+sort_commits = "oldest"
+commit_parsers = [
+  { message = "^feat", group = "<!-- 0 -->Features" },
+  { message = "^fix", group = "<!-- 1 -->Fixes" },
+  { message = "^perf", group = "<!-- 2 -->Performance" },
+  { message = "^(chore|docs|style|test|ci|build|refactor)", skip = true },
+]
+
+[bump]
+# Pre-1.0: feat bumps patch, a breaking change bumps minor (actions.md §6).
+# The dispatch input `version` cuts 1.0.0; from then on the usual rules.
+initial_tag = "v0.1.0"
+features_always_bump_minor = false
+breaking_always_bump_major = false
+no_increment_regex = "^(chore|docs|style|test|ci|build|refactor)"
