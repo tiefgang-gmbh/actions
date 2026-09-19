@@ -34,7 +34,7 @@ jobs:
       # Puts git-cliff on PATH for the steps below (the action's own
       # installer never does). The tool version is pinned to the one the
       # bump rules in cliff.toml were verified against.
-      - uses: taiki-e/install-action@c3ec0de9ae7f1019cea21aa96aa0a895b9552063 # v2.87.9
+      - uses: taiki-e/install-action@26e9283f268b880168bdbd2c545dfcd60ec2c6ab # v2.87.13
         with:
           tool: git-cliff@2.14.1
 
