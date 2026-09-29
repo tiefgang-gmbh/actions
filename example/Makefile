@@ -38,7 +38,10 @@ dist-check: deps
 test-functional: deps
 	pnpm exec vitest run --config vitest.functional.config.ts
 
-check: lint cover build dist-check test-functional
+# No `build`: it writes dist/index.js, and `check` judges the bundle as
+# it was committed. `dist-check` bundles the sources itself, so a source
+# that does not bundle still fails here.
+check: lint cover dist-check test-functional
 
 # dist/ is source-controlled output; it is never cleaned.
 clean:

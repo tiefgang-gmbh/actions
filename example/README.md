@@ -31,6 +31,7 @@ action. Not for use in a real workflow; copy it to start a new action.
 
 This directory is developed in the tiefgang monorepo and mirrored here;
 see the repository README. `make check` there runs lint, the unit
-suite with its coverage gate, the esbuild bundle, the drift gate that
-keeps `dist/index.js` equal to a fresh build, and a functional test
-that runs the committed bundle under the runner's environment contract.
+suite with its coverage gate, the drift gate that fails when the
+committed `dist/index.js` differs from a fresh build, and a functional
+test that runs the committed bundle under the runner's environment
+contract. It never writes the bundle; `make build` does.
