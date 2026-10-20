@@ -1,4 +1,4 @@
-# Release configuration for tiefgang-gmbh/actions (actions.md §6).
+# Release configuration for tiefgang-gmbh/actions.
 # Read by .github/workflows/release.yml; nothing here writes a file —
 # the rendered output becomes the GitHub Release body.
 
@@ -20,6 +20,12 @@ conventional_commits = true
 filter_unconventional = true
 tag_pattern = '^v[0-9]+\.[0-9]+\.[0-9]+$'
 sort_commits = "oldest"
+# A squash subject ends in its pull request's number in tiefgang's
+# monorepo, which names nothing here, or the wrong issue: drop it. The
+# message is the whole commit, so the number ends a line, not the text.
+commit_preprocessors = [
+  { pattern = '(?m)[ \t]*\(#[0-9]+\)$', replace = "" },
+]
 commit_parsers = [
   { message = "^feat", group = "<!-- 0 -->Features" },
   { message = "^fix", group = "<!-- 1 -->Fixes" },
@@ -28,7 +34,7 @@ commit_parsers = [
 ]
 
 [bump]
-# Pre-1.0: feat bumps patch, a breaking change bumps minor (actions.md §6).
+# Pre-1.0: feat bumps patch, a breaking change bumps minor.
 # The dispatch input `version` cuts 1.0.0; from then on the usual rules.
 initial_tag = "v0.1.0"
 features_always_bump_minor = false

@@ -1,5 +1,5 @@
 name: tiefgang example
-description: The contract template for tiefgang's actions — echoes an input to an output.
+description: A template for tiefgang's actions — echoes an input to an output.
 author: tiefgang GmbH
 inputs:
   name:

@@ -2,7 +2,7 @@
   "name": "@tiefgang/action-example",
   "private": true,
   "type": "module",
-  "description": "The contract template for tiefgang's GitHub Actions: one input echoed to one output.",
+  "description": "A template for tiefgang's GitHub Actions: one input echoed to one output.",
   "dependencies": {
     "@actions/core": "^3.0.1"
   },

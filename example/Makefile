@@ -13,19 +13,19 @@ lint: deps
 test: deps
 	pnpm exec vitest run
 
-# cover RUNS the suite (typescript.md): check composes cover, never both.
+# cover RUNS the suite: check composes cover, never both.
 cover: deps
 	pnpm exec vitest run --coverage
 
 # One self-contained ESM bundle: the consumer's runner executes it with
 # nothing installed. The banner gives the toolkit's CommonJS internals a
-# `require` under ESM (design D-4).
+# `require` under ESM.
 BANNER := import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);
 
 build: deps
 	pnpm exec esbuild src/main.ts --bundle --platform=node --target=node24 --format=esm --outfile=dist/index.js --banner:js="$(BANNER)"
 
-# The committed bundle must equal a fresh build (INV-ACTIONS-3). Builds
+# The committed bundle must equal a fresh build. Builds
 # into a scratch path so `check` never dirties the tree, then compares
 # byte for byte.
 dist-check: deps
@@ -34,7 +34,7 @@ dist-check: deps
 	cmp -s .output/dist-check.js dist/index.js || (echo "dist/index.js is stale — run make build" >&2 && exit 1)
 
 # Runs the COMMITTED bundle as a child process under the runner's
-# environment contract (INV-ACTIONS-6), never the sources.
+# environment contract, never the sources.
 test-functional: deps
 	pnpm exec vitest run --config vitest.functional.config.ts
 

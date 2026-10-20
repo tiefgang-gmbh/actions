@@ -73,7 +73,7 @@ jobs:
         if: steps.next.outputs.next != steps.next.outputs.current
         env:
           NEXT: ${{ steps.next.outputs.next }}
-        run: git-cliff --unreleased --tag "$NEXT" --strip all -o notes.md && cat notes.md
+        run: git-cliff --unreleased --tag "$NEXT" --strip all -o notes.txt && cat notes.txt
 
       - name: Tag, move the major tag, push, release
         if: steps.next.outputs.next != steps.next.outputs.current
@@ -92,4 +92,4 @@ jobs:
           else
             git push origin "refs/tags/$major"
           fi
-          gh release create "$NEXT" --title "$NEXT" --notes-file notes.md
+          gh release create "$NEXT" --title "$NEXT" --notes-file notes.txt

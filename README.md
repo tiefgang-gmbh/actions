@@ -3,9 +3,9 @@
 GitHub Actions by [tiefgang GmbH](https://tiefgang.gmbh), consumed as
 `tiefgang-gmbh/actions/<name>`.
 
-| action                       | what it does                                         |
-| ---------------------------- | ---------------------------------------------------- |
-| [example](example/README.md) | The contract template: echoes an input to an output. |
+| action                       | what it does                                              |
+| ---------------------------- | --------------------------------------------------------- |
+| [example](example/README.md) | A template for new actions: echoes an input to an output. |
 
 ## Usage
 
@@ -29,9 +29,9 @@ and a GitHub Release carrying the notes.
 
 ## This repository is a mirror
 
-The actions are developed in tiefgang's monorepo and this repository
-is written by its CI on every merge: the `actions/` directory there is
-this tree, commit for commit. Please file **issues** here. Pull
+The actions are developed in tiefgang's monorepo, where this tree is
+one directory, and this repository is written by its CI on every
+merge, commit for commit. Please file **issues** here. Pull
 requests cannot be merged here: the mirror accepts only fast-forward
 pushes from the monorepo, so a commit merged here would block every
 later mirror push. A change proposal is best made as an issue with

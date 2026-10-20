@@ -1,9 +1,9 @@
 # tiefgang example
 
-The contract template for tiefgang's actions. It echoes an input to an
-output so the module contract — lint, coverage, the committed bundle,
-the drift gate, the functional test — exists before the first real
-action. Not for use in a real workflow; copy it to start a new action.
+A template for tiefgang's actions. It echoes an input to an output and
+carries what every JavaScript action here has: its sources, a unit
+test, the committed bundle the runner executes, and a functional test
+that runs that bundle. Not for use in a real workflow.
 
 ## Usage
 
@@ -29,9 +29,8 @@ action. Not for use in a real workflow; copy it to start a new action.
 
 ## Development
 
-This directory is developed in the tiefgang monorepo and mirrored here;
-see the repository README. `make check` there runs lint, the unit
-suite with its coverage gate, the drift gate that fails when the
-committed `dist/index.js` differs from a fresh build, and a functional
-test that runs the committed bundle under the runner's environment
-contract. It never writes the bundle; `make build` does.
+This directory is developed in tiefgang's monorepo and mirrored here;
+see the repository README. `dist/index.js` is built from `src/` and
+committed, so a runner executes it with nothing installed, and every
+change is checked against a fresh build of the sources before it is
+merged.

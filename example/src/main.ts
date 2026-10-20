@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import { greet } from './greet'
 
 // Every failure goes through setFailed: a non-zero exit and one
-// ::error:: line, never a stack trace in the consumer's log (actions.md §2.3).
+// ::error:: line, never a stack trace in the consumer's log.
 try {
   const greeting = greet(core.getInput('name'))
   core.notice(greeting)
